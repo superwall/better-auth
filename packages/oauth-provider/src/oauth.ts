@@ -1,4 +1,4 @@
-import { defineRequestState } from "@better-auth/core/context";
+import { defineRequestState, hasRequestState } from "@better-auth/core/context";
 import { logger } from "@better-auth/core/env";
 import { BetterAuthError } from "@better-auth/core/error";
 import {
@@ -244,6 +244,7 @@ export const oauthProvider = <O extends OAuthOptions<Scope[]>>(options: O) => {
 							.get(ctx.context.authCookies.sessionToken.name)
 							?.value.split(".")[0];
 						if (!sessionToken) return;
+						if (!(await hasRequestState())) return;
 						// Continue with authorization request by using the initial prompt
 						// but clearing the login prompt cookie if forced login prompt
 						const _query =
