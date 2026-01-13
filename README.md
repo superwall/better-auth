@@ -5,7 +5,7 @@
     <img src="./banner.png" alt="Better Auth Logo">
   </picture>
   <h2 align="center">
-    Better Auth
+    Better Auth XD
   </h2>
 
   <p align="center">
